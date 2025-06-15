@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Sun'iy Intelekt Sayti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        #chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            height: 200px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sun'iy Intelekt Sayti</h1>
+
+    <!-- Dark mode toggle -->
+    <button onclick="toggleMode()">🌗 Rejimni o‘zgartirish</button>
+
+    <hr>
+
+    <!-- Image section -->
+    <h2>Sun’iy intellekt rasmi</h2>
+    <img src="ai_image.png" alt="AI Image" width="300">
+
+    <hr>
+
+    <!-- Background video -->
+    <h2>Video dars (YouTube va fayl)</h2>
+    <video width="320" height="240" controls>
+        <source src="video.mp4" type="video/mp4">
+        Brauzeringiz video formatini qo‘llab-quvvatlamaydi.
+    </video>
+
+    <br><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4Bdc55j80l8" 
+    title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+    <hr>
+
+    <!-- Simple AI Interface -->
+    <h2>AI Chat (Demo)</h2>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Xabar yozing...">
+    <button onclick="sendMessage()">Yuborish</button>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function sendMessage() {
+            let input = document.getElementById("userInput").value;
+            let chatbox = document.getElementById("chatbox");
+            if (input.trim() !== "") {
+                chatbox.innerHTML += "<div><b>Siz:</b> " + input + "</div>";
+                chatbox.innerHTML += "<div><b>AI:</b> Bu demo javob. Haqiqiy AI emas 😅</div>";
+                document.getElementById("userInput").value = "";
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+        }
+    </script>
+
+</body>
+</html>
